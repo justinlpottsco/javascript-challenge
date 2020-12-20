@@ -9,7 +9,13 @@ var tbody = d3.select('tbody')
 // Loop through array of objects then each object
 tableData.forEach((sighting) => {
     // Append Table Row `tr` to the Table Body `tbody`
-    let row = tbody.append(sighting);
+    var row = tbody.append('tr');
+    // Object.values & forEach to iterate through values
+    Object.entries(sighting).forEach(([key,value]) => {
+    // Append cell to row for each value
+        var cell = row.append('td');
+        cell.text(value);
+    });
 }
 
 
